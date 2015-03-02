@@ -1,0 +1,8 @@
+/vendor/
+!/logs/README.md
+/app/templates/cache/*
+.DS_STORE
+/app/config/config.php
+/cache/
+composer.lock
+composer.phar
