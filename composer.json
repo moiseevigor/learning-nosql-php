@@ -10,24 +10,9 @@
     "homepage": "http://moiseevigor.github.io/",
     "email": "moiseev.igor@gmail.com"
   }],
-  "autoload": {
-    "psr-0": {
-      "": "src/"
-    },
-    "psr-0": {
-      "": "db/"
-    }
-  },
   "require": {
     "php": ">=5.4.0",
-    "slim/slim": "2.*",
-    "slim/views": "*",
-    "slim/extras": "2.*",
-    "twig/twig": "1.*",
-    "php-instagram-api/php-instagram-api": "dev-master",
-    "j4mie/paris": "1.*",
-    "j4mie/idiorm": "1.*",
-    "slim/strong": "dev-master"
+    "slim/slim": "2.*"
   },
   "minimum-stability": "dev"
 }
