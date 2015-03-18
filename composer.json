@@ -10,6 +10,9 @@
     "homepage": "http://moiseevigor.github.io/",
     "email": "moiseev.igor@gmail.com"
   }],
+ "autoload": {
+    "psr-0": { "": "src/controllers" }
+  },
   "require": {
     "php": ">=5.4.0",
     "slim/slim": "2.*"
