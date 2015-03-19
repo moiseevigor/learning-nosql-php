@@ -11,13 +11,15 @@
     "email": "moiseev.igor@gmail.com"
   }],
  "autoload": {
-    "psr-0": { "": "src/controllers" }
+    "psr-0": { "": [
+      "config/",
+      "src/controllers/",
+      "src/models"
+    ]}
   },
   "require": {
     "php": ">=5.4.0",
-    "slim/slim": "2.*",
-    "doctrine/orm": "@stable",
-    "symfony/yaml": "2.*"
+    "slim/slim": "2.*@stable"
   },
   "minimum-stability": "dev"
 }

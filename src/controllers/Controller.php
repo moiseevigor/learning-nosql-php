@@ -20,4 +20,12 @@ abstract class Controller
         $response['Content-Type'] = 'application/json';
         $response->body($body);
     }
+
+    public static function objectToArray ($object) 
+    {
+        if(!is_object($object) && !is_array($object))
+            return $object;
+
+        return array_map(array('Controller', 'objectToArray'), (array) $object);
+    }
 }
