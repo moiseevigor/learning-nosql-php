@@ -1,0 +1,29 @@
+.feedlist li {
+    float: left;
+    width: 50%;
+    margin-bottom: 20px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-right: 20px;
+    border-radius: 0;
+}
+
+.feedlist li:nth-child(2n+1) {
+    padding-right: 0;
+}
+
+
+.feedlist li .picture {
+    height: 250px;
+    overflow: hidden;
+    border-radius: 10px 10px 0 0;
+}
+
+.feedlist li .picture img {
+    min-height: 100%;
+}
+
+.feedlist li .text {
+    height: 50px;
+    border-radius: 0 0 10px 10px;
+}

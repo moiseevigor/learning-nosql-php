@@ -18,7 +18,7 @@ $mongo = new MongoClient(
 	"{$db['driver']}://{$db['user']}:{$db['password']}@{$db['host']}:{$db['port']}/{$db['dbname']}"
 );
 
-$app->get("/utenti",         array('UtenteController', 'index'));
-$app->get("/utenti/:name",   array('UtenteController', 'show'));
+$app->get("/foto",  array('FotoController', 'index'));
+$app->post("/foto", array('FotoController', 'create'));
 
 $app->run();

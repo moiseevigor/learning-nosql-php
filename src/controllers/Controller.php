@@ -28,4 +28,16 @@ abstract class Controller
 
         return array_map(array('Controller', 'objectToArray'), (array) $object);
     }
+    
+    public static function getField($arr, $name)
+    {
+        return (isset($arr[$name])) ? $arr[$name] : '';
+    }
+
+    // Geolocalizzazione
+    public static function gpsDecimal($gradi, $minuti, $secondi, $emisfero)
+    {
+        $geodec = $gradi + ($minuti/60) + ($secondi/36000000);
+        return ($emisfero=='S' || $emisfero=='W') ? $geodec*=-1 : $geodec;
+    }
 }

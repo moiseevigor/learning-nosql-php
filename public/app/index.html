@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name='viewport' content='width=device-width,initial-scale=1,user-scalable=no' />
+		<meta name="format-detection" content="telephone=no"/>
+		<title>MySPRITZ</title>
+        <link rel="stylesheet" href="css/reset.css" />
+        <link rel="stylesheet" href="css/mobile.css" />
+        <link rel="stylesheet" href="css/desktop.css" media="screen and (min-width: 680px)" />    
+        <!-- script src="phonegap.js"></script -->
+        <script src="js/jquery.js"></script>
+        <script src="js/functions.js"></script>
+	</head>
+    <body>
+        <header>
+            <a class="open-menu" href="">
+                ≡
+            </a>
+            <a class="logo" href="#pagina-feed">
+                MySPRITZ
+            </a>
+            <a class="login" href="#pagina-login">
+                Login
+            </a>
+        </header>
+        
+        <div class="content">
+            
+            <div class="side-menu">
+                 <a href="#pagina-feed">
+                    Feed
+                </a>
+                <a href="#pagina-inserisci">
+                    + Spritz
+                </a>
+            </div>
+            
+            <!-- 
+	            PAGINA FEED
+            -->
+            
+            <div id="pagina-feed" class="page active">
+	            <ul class="feedlist clearfix">
+                    <li class="placeholder">
+                        <div class="picture">
+                            <img src="" alt="" />
+                        </div>
+                        <div class="text">
+                            <h2></h2>
+                            <div class="info">
+                                <span class="data"></span>
+                            </div>
+                        </div>
+                    </li>
+	            </ul>
+            </div>
+            
+            <!-- 
+	            PAGINA INSERISCI
+            -->
+            
+            <div id="pagina-inserisci" class="page">
+                <div class="insert-form">
+                <form enctype="multipart/form-data" method="POST" action="/foto">
+                  <input type="hidden" name="_METHOD" value="POST">
+                  <p>Scatta una foto:</p>
+                  <input required type="file" accept="image/*" capture="camera" name="foto">
+                
+                  <p>Nome spritz:</p>
+                  <input type="text" name="nome" placeholder="es. Spritz Bianco">
+                
+                  <input type="submit" name="salva" value="Salva" />
+                </form>
+                </div>
+
+            </div>
+            
+            <!-- 
+	            PAGINA LOGIN
+            -->
+            <div id="pagina-login" class="page">
+	            
+	            <div class="login-form">
+	                <form action="index.html" method="POST">
+	                    <input type="text"  autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" name="username" id="id_username" placeholder="username"/>
+	                    <input type="password" name="password" id="id_password" placeholder="password"/>
+	                    <input type="submit" name="login" value="login" />
+	                </form>
+                </div>
+                
+            </div>
+            
+            
+            
+        </div>
+        <!-- /.content -->
+        
+    </body>
+</html>

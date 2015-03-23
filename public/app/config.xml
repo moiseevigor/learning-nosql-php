@@ -1,0 +1,198 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="it.cff.myspritz" version="1.0.2" 
+xmlns="http://www.w3.org/ns/widgets" 
+xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>My SPRITZ</name>
+    <description>
+        La app per bere spritz
+    </description>
+    <author email="info@javaspritz.it" href="http://javaspritz.it">
+        Javaspritz TEAM
+    </author>
+    
+    <!-- 
+	    La prima pagina da caricare.
+    -->
+    <content src="index.html" />
+
+
+    <!-- Permessi android, vengono mostrati quando si installa la app. 
+    Per iOS non serve nessun permesso, vengono chiesti solo quando ce ne bisogno. -->
+    <preference name="permissions" value="none"/>
+    <feature name="http://api.phonegap.com/1.0/battery"/>
+    <feature name="http://api.phonegap.com/1.0/camera"/>
+    <feature name="http://api.phonegap.com/1.0/contacts"/>
+    <feature name="http://api.phonegap.com/1.0/file"/>
+    <feature name="http://api.phonegap.com/1.0/geolocation"/>
+    <feature name="http://api.phonegap.com/1.0/media"/>
+    <feature name="http://api.phonegap.com/1.0/network"/>
+    <feature name="http://api.phonegap.com/1.0/notification"/>
+    
+    <!-- permessi per il debug remoto. Se funziona..... -->
+    <feature name="debug-server" required="true">
+	    <param name="domain" value="http://debug.build.phonegap.com"/>
+   		<param name="key" value="cffifts"/>
+   	</feature>
+<!-- 
+==================================
+	ELENCO PREFERENZE APP.
+==================================	
+--> 
+    <!-- 
+	    Definisce se la app funziona sia in portrait che in landscape.
+	    Ora accetta tutti gli orientamenti.
+    -->
+    <preference name="orientation" value="default" />
+    <!-- 
+	   SOLO iOS: Definisce se la app funziona sia per tablet che smartphone
+	   i valori sono:  (handset, tablet or universal) 
+	-->
+    <preference name="target-device" value="universal" />
+    <!-- 
+	    Definisce se la app è in full screen (se è fullscreen la barra di stato non si vede)
+    -->
+    <preference name="fullscreen" value="true" />
+
+
+    
+    <preference name="webviewbounce" value="false" />
+    <preference name="prerendered-icon" value="true" />
+    <preference name="stay-in-webview" value="false" />
+    <preference name="ios-statusbarstyle" value="black-opaque" />
+    <preference name="detect-data-types" value="true" />
+    <preference name="exit-on-suspend" value="false" />
+    <preference name="show-splash-screen-spinner" value="true" />
+    <preference name="auto-hide-splash-screen" value="true" />
+    <preference name="disable-cursor" value="false" />
+    
+    
+    <!-- 
+    La versione minima di android tale per cui la app può essere installata 
+	    
+    -->
+    <preference name="android-minSdkVersion" value="7" />
+    <!-- 
+    Ci dice dove poter installare la app su android (memoria del telefono o SD), i valori possono
+    essere: auto o preferExternal.
+    
+    • Con "auto" decide android dove mettere la app
+    • Con "preferExternal" dite ad android che preferite che la app venga installata sulla memoria esterna. Però android non vi da la garanzia che ciò avvenga.
+    • Con "internalOnly" la app viene installata SOLO nella memoria del telefono e NON SI PUÒ SPOSTARE DA Lì.
+    
+    Di solito "auto" va sempre bene.
+    
+    -->
+    
+
+    <preference name="android-installLocation" value="auto" />
+
+    <!-- Ci permette di di inserire nei dati EXIF la posizione GPS. -->
+    <preference name="CameraUsesGeolocation" value="true" />
+
+<!-- 
+==================================
+	ELENCO DI PLUGIN DA CARICARE.
+==================================	
+--> 
+    
+    <!-- Ci da informazioni sul device, ad esempio: modello, piattaforma, versione, UUID  
+    -->
+    <gap:plugin name="org.apache.cordova.device" />
+
+    <!-- 
+	    Fornisce degli eventi aggiuntivi per capire lo stato della batteria.
+    -->
+    <gap:plugin name="org.apache.cordova.battery-status" version="0.2.11" />
+    
+    <!-- 
+	    Da l'accesso alla fotocamera
+    -->
+    <gap:plugin name="org.apache.cordova.camera" version="0.3.2" />
+    
+    <!-- 
+	    Simile a "camera", solo che il tutto avviene in background.
+	    Avete presente shazam che ascolta la musica ? Occhio che alcuni store potrebbero
+	    non approvarvi la app se non avvisate all'utente!
+
+    -->
+    
+    <gap:plugin name="org.apache.cordova.media-capture" version="0.3.3" />
+    
+    <!-- 
+	    Per accedere ai contatti del telefono. Occhio che per iOS dovete gestire anche
+	    il caso che l'utente non voglia che voi accediate ai contatti.
+    -->
+    <gap:plugin name="org.apache.cordova.contacts" version="0.2.13" />
+    
+    <!-- 
+	    Per accedere all'accellerometro del device.
+    -->
+    
+    <gap:plugin name="org.apache.cordova.device-motion" version="0.2.10" />
+    
+    <!-- 
+	    Fornisce l'accesso alla bussola del telefono, se c'è.
+	    
+    -->
+    <gap:plugin name="org.apache.cordova.device-orientation" version="0.3.9" />
+    
+    <!--
+    	Fornisce l'accesso al filesystem del telefono.
+    -->
+    <gap:plugin name="org.apache.cordova.file" version="1.3.1" />
+    
+    <!-- 
+	    Download e Upload di file.
+
+    -->
+    <gap:plugin name="org.apache.cordova.file-transfer" version="0.4.6" />
+    
+    <!-- 
+	    
+	    Fornisce il servizio di Geolocalizzazione.
+
+    -->
+    <gap:plugin name="org.apache.cordova.geolocation" version="0.3.10" />
+    
+    <!-- 
+	    Fornisce informazioni e metodi per capire che lingua ha impostato l'utente (language) nel telefono e
+	    come la data viene espressa (locale). es noi scriviamo dd-mm-YYYY (27-02-2015) mentre in USA scrivono prima il mese
+	    es. mm-dd-YYYY (02-27-2015)
+	    
+    -->
+    <gap:plugin name="org.apache.cordova.globalization" version="0.3.1" />
+    
+    <!-- 
+	    Apre un'altra webview per i contenuti esterni. Per esempio per mostare un pdf.
+    -->
+    <gap:plugin name="org.apache.cordova.inappbrowser" version="0.5.2" />
+    <!-- 
+		Riusciamo ad accedere ai media salvati nel telefono (immagini, video ecc.)
+    -->
+    <gap:plugin name="org.apache.cordova.media" version="0.2.13" />
+    <!-- 
+		Da informzioni sullo stato della rete: tipo se è offline o è in 3G.
+    -->
+    <gap:plugin name="org.apache.cordova.network-information" version="0.2.12" />
+    <!-- 
+		Fornisce il controllo delle finestre di dialogo native
+    -->
+    <gap:plugin name="org.apache.cordova.dialogs" version="0.2.10" />
+    <!-- 
+		Fornisce il controllo dello splashscreen iniziale.
+    -->
+    <gap:plugin name="org.apache.cordova.splashscreen" version="0.3.4" />
+    <!-- 
+	    fa vibrare il telefono.
+    -->
+    <gap:plugin name="org.apache.cordova.vibration" version="0.3.11" />
+    <!-- 
+	    Icona della app.
+    -->
+    <icon src="icon-1024.png" />
+    <!-- 
+	    la app può leggere contenuti che provengono da qualsiasi dominio.
+	    Si possono quindi fare anche chiamate ajax locali.
+    -->
+    <access origin="*" />
+</widget>

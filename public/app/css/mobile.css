@@ -1,0 +1,242 @@
+@font-face {
+    font-family: 'Signika';
+    src: url('../fonts/Signika-Regular.ttf') format('opentype');
+    font-weight: 400;
+    font-style: normal;  
+}
+
+@font-face {
+    font-family: 'Signika';
+    src: url('../fonts/Signika-Bold.ttf') format('opentype');
+    font-weight: bold;
+    font-style: normal;  
+}
+
+@font-face {
+    font-family: 'Signika';
+    src: url('../fonts/Signika-Light.ttf') format('opentype');
+    font-weight: 200;
+    font-style: normal;  
+}
+
+@font-face {
+    font-family: 'Signika';
+    src: url('../fonts/Signika-Semibold.ttf') format('opentype');
+    font-weight: 600;
+    font-style: normal;  
+}
+
+@font-face {
+    font-family: 'Architects Daughter';
+    src: url('../fonts/ArchitectsDaughter.ttf') format('opentype');
+    font-weight: normal;
+    font-style: normal;  
+}
+
+body {
+    font-family: 'Signika';
+    color:#333;
+    -webkit-user-select: none;
+    -webkit-touch-callout:none;
+    padding-top: 80px;
+}
+
+a {
+    text-decoration: none;
+    color:#333;
+}
+
+* {
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0) !important; 
+    -webkit-focus-ring-color: rgba(255, 255, 255, 0) !important;
+    -webkit-user-select: none;
+    -webkit-touch-callout:none;
+    outline: none !important;
+} 
+::-webkit-input-placeholder { /* WebKit browsers */
+    font-family: 'Signika';
+    font-weight: lighter;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   font-family: 'Signika';
+    font-weight: lighter;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    font-family: 'Signika';
+    font-weight: lighter;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    font-family: 'Signika';
+    font-weight: lighter;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+header {
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height: 50px;
+    border-bottom: 5px solid rgba(0,0,0,.3);
+
+    
+}
+
+header .open-menu {
+    position: absolute;
+    height:50px;
+    display:block;
+    line-height: 50px;
+    padding:0 20px;
+    font-size:48px;
+    left:0;
+    top:0;
+}
+
+header .login {
+    position: absolute;
+    height:50px;
+    display:block;
+    line-height: 50px;
+    padding:0 20px;
+    font-size:20px;
+    font-weight: lighter;
+    right:0;
+    top:0;
+    color:#39c;
+}
+
+header .logo {
+    font-family: 'Architects Daughter';
+    text-align: center;
+    display:block;
+    line-height: 50px;
+    font-size:24px;
+    background:white;
+}
+
+.side-menu {
+    position: fixed;
+    top:50px;
+    left:-200px;
+    bottom:0;
+    width:200px;
+    background: #333;
+    
+    -webkit-transition:left 250ms ease;
+    transition:left 250ms ease;
+    
+}
+.side-menu.open {
+    left:0;
+}
+.side-menu a {
+    color: #eee;
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    font-family: 'Architects Daughter';
+    padding:10px;
+    border-bottom:2px solid rgba(255,255,255,.4);
+    
+}
+
+/* Lista fotografie */
+
+.placeholder {
+    display: none;
+}
+
+.feedlist li {
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 40px;
+}
+
+.feedlist li img {
+    width:100%;
+    display: block;
+}
+
+.feedlist li h2 {
+    font-size: 18px;
+    margin: 0 0 10px;
+    font-weigt: bold;
+}
+
+.feedlist li .text {
+    text-align: center;
+    line-height: 20px;
+    background: #eee;
+    font-weight: 300;
+    font-size: 18px;
+    padding: 5px 0;
+}
+
+.feedlist li .info {
+    font-size: 12px;
+}
+
+
+
+/* Form di login, caricamento foto e registrazione */
+
+form  {
+    margin:20px 0;
+}
+
+form a {
+    color: #39C;
+}
+
+input[type="text"], input[type="password"], input[type="url"], input[type="email"] {
+    border:none;
+    border-radius: 0;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+    display: block;
+    height:20px;
+    padding:10px 0;
+    margin-bottom: 20px;
+    width: 100%;
+    font-family: 'Signika';
+    border-bottom:2px solid #4ad;
+    font-family: 'Signika';
+    font-weight: lighter;
+    letter-spacing: 1px;
+    /*text-transform: uppercase;*/
+    text-align: center;
+    
+}
+
+input[type="submit"]{
+    border:none;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+    display: block;
+    height:50px;
+    width:100%;
+    font-family: 'Architects Daughter';
+    background: #39c;
+    border-bottom: 2px solid #28b;
+    color:white;
+    font-size: 30px;
+}
+
+.page {
+	display:none;
+	padding: 0 20px;
+}
+
+.page.active {
+	display: block;
+}
