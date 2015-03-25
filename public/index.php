@@ -11,14 +11,14 @@ require '../vendor/autoload.php';
 $config = require_once('../config/config.php');
 
 $app = new \Slim\Slim(array(
-    'cookies.encrypt' => true
+    'cookies.encrypt' => false
 ));
 
 $app->add(new \Slim\Middleware\SessionCookie(array(
     'expires' => '1 month',
     'path' => '/',
     'domain' => 'corso.onelife.fm',
-    'secure' => true,
+    'secure' => false,
     'httponly' => false,
     'name' => 'myspritz_session',
     'secret' => 'ad7234k234k234n234h324rtynv',
@@ -35,6 +35,8 @@ $mongo = new MongoClient(
 $app->get("/foto",  array('FotoController', 'index'));
 $app->post("/foto", array('FotoController', 'create'));
 
+$app->get("/utenti/info", array('UtentiController', 'info'));
 $app->post("/utenti", array('UtentiController', 'create'));
+$app->post("/utenti/login", array('UtentiController', 'login'));
 
 $app->run();

@@ -5,6 +5,15 @@
 
 class Utenti
 {
+    public static function findOne($params)
+    {
+        global $mongo;
+
+        $utente = $mongo->spritzdb->utenti->findOne($params);
+
+        return $utente;
+    }
+
     public static function create($utenteDati)
     {
         global $mongo;

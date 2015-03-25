@@ -11,6 +11,7 @@
         <!-- script src="phonegap.js"></script -->
         <script src="js/jquery.js"></script>
         <script src="js/functions.js"></script>
+        <script src="/utenti/info?callback=init"></script>
 	</head>
     <body>
         <header>
@@ -82,13 +83,14 @@
             <div id="pagina-login" class="page">
 	            
 	            <div class="login-form">
-	                <form action="index.html" method="POST">
-	                    <input type="text"  autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" name="username" id="id_username" placeholder="username"/>
-	                    <input type="password" name="password" id="id_password" placeholder="password"/>
+	                <form action="/utenti/login" method="POST" onsubmit="return false;">
+                        <input type="hidden" name="_METHOD" value="POST">
+	                    <input type="text"  autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" name="email" id="id_email_login" placeholder="email"/>
+	                    <input type="password" name="password" id="id_password_login" placeholder="password"/>
 	                    <input type="submit" name="login" value="login" />
 	                </form>
                 </div>
-                <a class="login" href="#pagina-registrati">
+                <a href="#pagina-registrati">
                     Registrati
                 </a>                
             </div>
@@ -98,15 +100,15 @@
             -->
             
             <div id="pagina-registrati" class="page">
-                <div class="login-form">
+                <div class="register-form">
                     <form action="/utenti" method="POST">
                         <input type="hidden" name="_METHOD" value="POST">
-                        <input required type="text" name="nome" id="nome" placeholder="Nome"/>
-                        <input required type="text" name="cognome" id="cognome" placeholder="Cognome"/>
+                        <input required type="text" name="nome" id="id_nome" placeholder="Nome"/>
+                        <input required type="text" name="cognome" id="id_cognome" placeholder="Cognome"/>
                         <input required type="email" name="email" id="id_email" placeholder="Email"/>
                         <input required type="password" name="password" id="id_password" placeholder="password"/>  
                         <input required type="password" name="conferma_password" id="id_password2" placeholder="Conferma password"/>                    
-    					<input type="checkbox" required id="privacy"><label for="privacy"> Accetto il trattamento dei miei dati in base alla <a href="privacy.html">normativa sulla privacy</a>.</label>
+    					<input type="checkbox" required id="id_privacy" name="privacy"><label for="privacy"> Accetto il trattamento dei miei dati in base alla <a href="privacy.html">normativa sulla privacy</a>.</label>
                         <input type="submit" name="register" value="Registrati" />
                     </form>
                 </div>

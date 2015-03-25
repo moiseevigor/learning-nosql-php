@@ -5,6 +5,41 @@
 
 class UtentiController extends Controller
 {
+    public static function info()
+    {
+        if (isset($_SESSION['email']) && $utente = Utenti::findOne(array('email' => $_SESSION['email']))) {
+            unset($utente['password']);
+            Controller::response(array(
+                'status' => 200,
+                'utente' => $utente
+            ));
+        } else {
+            Controller::response(array(
+                'status' => 401,
+                'message' => 'Non è autenticato'
+            ));
+        }
+    }
+    
+    public static function login()
+    {
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+
+        if ($utente = Utenti::findOne(array('email' => $email, 'password' => $password))) {
+            $_SESSION['email'] = $utente['email'];
+            Controller::response(array(
+                'status' => 200,
+                'message' => 'Benvenuto ' . $utente['nome']
+            ));
+        } else {
+            Controller::response(array(
+                'status' => 401,
+                'message' => 'Errore di autenticazione'
+            ));
+        }
+    }
+    
     public static function create()
     {
         $nome = $_POST['nome'];
@@ -41,24 +76,24 @@ class UtentiController extends Controller
         }
     
         // Controllo se l'utente esiste già
-        /*
-    	$query = "SELECT * FROM utenti WHERE email = '$email';";
-    	$result = mysqli_query($connessione, $query);
-    	
-    	if (mysqli_num_rows($result)) {
+    	if (Utenti::findOne(array('email' => $email))) {
             $errors['email'] = "Ti sei già registrato.";
         }
-        */
         
-        //$nome = $cognome = $email = $password = $privacy = '';
-        
-        Utenti::create(array(
-            $nome,
-            $cognome,
-            $email,
-            $password,
-            $privacy
-        ));
-
+        if (isset($errors)) {
+            Controller::response(array(
+                'status' => 401,
+                'errors' => $errors
+            ));
+        } else {
+            Controller::response(Utenti::create(array(
+                "nome" => $nome,
+                "cognome" => $cognome,
+                "email" => $email,
+                "password" => $password,
+                "privacy" => $privacy
+            )));
+        }
+    
     }
 }

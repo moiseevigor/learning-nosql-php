@@ -7,9 +7,6 @@ class FotoController extends Controller
 {
     public static function index()
     {
-        $_SESSION['aaaaaaa'] = 'bbbbbbbbbb';
-
-
         $skip = 5;
         if (isset($_GET['skip'])) {
             $skip = $_GET['skip'];
