@@ -19,7 +19,8 @@
   },
   "require": {
     "php": ">=5.4.0",
-    "slim/slim": "2.*@stable"
+    "slim/slim": "2.*@stable",
+    "facebook/php-sdk-v4" : "4.0.*"
   },
   "minimum-stability": "dev"
 }

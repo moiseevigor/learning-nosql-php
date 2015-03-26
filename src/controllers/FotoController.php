@@ -23,6 +23,11 @@ class FotoController extends Controller
         Controller::response(Foto::find(array('_id' => $id)));
     }
     
+    public static function destroy($id)
+    {
+        Controller::response(Foto::destroy(array('_id' => $id)));
+    }
+    
     public static function create()
     {
         $cartellaUpload ="img/";

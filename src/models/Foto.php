@@ -30,4 +30,12 @@ class Foto
 
         return $fotoDati;
     }
+    
+     public static function destroy($params)
+    {
+        global $mongo;
+        
+        return    $mongo->spritzdb->foto->remove($params);
+        
+    }
 }

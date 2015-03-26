@@ -23,7 +23,7 @@ class UtentiController extends Controller
     
     public static function login()
     {
-        $email = $_POST['email'];
+        $email = $_POST['email']; 
         $password = $_POST['password'];
 
         if ($utente = Utenti::findOne(array('email' => $email, 'password' => $password))) {

@@ -63,7 +63,7 @@
             
             <div id="pagina-inserisci" class="page">
                 <div class="insert-form">
-                <form enctype="multipart/form-data" method="POST" action="/foto">
+                <form enctype="multipart/form-data" method="POST" action="/foto"  onsubmit="return false;">
                   <input type="hidden" name="_METHOD" value="POST">
                   <p>Scatta una foto:</p>
                   <input required type="file" accept="image/*" capture="camera" name="foto">
@@ -72,11 +72,12 @@
                   <input type="text" name="nome" placeholder="es. Spritz Bianco">
                 
                   <input type="submit" name="salva" value="Salva" />
+                 
                 </form>
                 </div>
-
+                <div class="loader">LOADING...</div>
             </div>
-            
+           
             <!-- 
 	            PAGINA LOGIN
             -->
@@ -90,6 +91,11 @@
 	                    <input type="submit" name="login" value="login" />
 	                </form>
                 </div>
+                 <div>
+	                <form action="/facebook/login" method="GET">
+                       <input type="submit" name="loginFB" value="Login con Facebook" />
+	                </form>
+                </div>
                 <a href="#pagina-registrati">
                     Registrati
                 </a>                
@@ -99,16 +105,16 @@
 	            PAGINA REGISTRAZIONE
             -->
             
-            <div id="pagina-registrati" class="page">
+            <div id="pagina-registrati" class="page" onsubmit="validaForm()">
                 <div class="register-form">
                     <form action="/utenti" method="POST">
                         <input type="hidden" name="_METHOD" value="POST">
-                        <input required type="text" name="nome" id="id_nome" placeholder="Nome"/>
-                        <input required type="text" name="cognome" id="id_cognome" placeholder="Cognome"/>
-                        <input required type="email" name="email" id="id_email" placeholder="Email"/>
-                        <input required type="password" name="password" id="id_password" placeholder="password"/>  
-                        <input required type="password" name="conferma_password" id="id_password2" placeholder="Conferma password"/>                    
-    					<input type="checkbox" required id="id_privacy" name="privacy"><label for="privacy"> Accetto il trattamento dei miei dati in base alla <a href="privacy.html">normativa sulla privacy</a>.</label>
+                        <input  type="text" name="nome" id="id_nome" placeholder="Nome"/>
+                        <input type="text" name="cognome" id="id_cognome" placeholder="Cognome"/>
+                        <input type="email" name="email" id="id_email" placeholder="Email"/>
+                        <input type="password" name="password" id="id_password" placeholder="password"/>  
+                        <input type="password" name="conferma_password" id="id_password2" placeholder="Conferma password"/>                    
+                        <input type="checkbox" required id="id_privacy" name="privacy"><label for="privacy"> Accetto il trattamento dei miei dati in base alla <a href="privacy.html">normativa sulla privacy</a>.</label>
                         <input type="submit" name="register" value="Registrati" />
                     </form>
                 </div>
