@@ -16,14 +16,11 @@ $app = new \Slim\Slim(array(
     'cookies.encrypt' => true
 ));
 
-$app = new \Slim\Slim(array(
-    'templates.path' => '../src/view'
-));
-
 $app->add(new \Slim\Middleware\SessionCookie(array(
     'expires' => '1 month',
     'path' => '/',
     'domain' => '192.168.88.250',
+//    'domain' => 'corso.onelife.fm',
     'secure' => false,
     'httponly' => false,
     'name' => 'myspritz_session',
@@ -40,9 +37,11 @@ $mongo = new MongoClient(
 );
 
 $app->get("/",  function() use($app) {
+    $app = new \Slim\Slim(array(
+        'templates.path' => '../src/view'
+    ));
     $app->render('index.html') ;
 });
-
 
 $app->get("/foto",  array('FotoController', 'index'));
 $app->post("/foto", array('FotoController', 'create'));

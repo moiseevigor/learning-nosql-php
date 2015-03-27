@@ -10,8 +10,19 @@
         <link rel="stylesheet" href="css/desktop.css" media="screen and (min-width: 680px)" />    
         <!-- script src="phonegap.js"></script -->
         <script src="js/jquery.js"></script>
-        <script src="js/functions.js"></script>
+        <script src="js/page.js"></script>
+        <script src="js/login.js"></script>
+        <script src="js/register.js"></script>
+        <script src="js/upload.js"></script>
         <script src="/utenti/info?callback=init"></script>
+        <script type="text/javascript">
+            var utente = {};
+
+            function init(response) {
+                if (response.status === 200)
+                    utente = response.utente;
+            }
+        </script>
 	</head>
     <body>
         <header>
