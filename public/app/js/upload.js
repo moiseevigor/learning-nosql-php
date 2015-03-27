@@ -1,10 +1,14 @@
+/**
+ * Gestione upload
+ */
+
 $(document).ready(function() {
 
     // Upload immagine
    $(".insert-form > form").submit(function() {
-        $(window).load(function() {
-            $(".loader").fadeOut("slow");
-        });
+        console.log('submit');
+        $(".loader").fadeOut("slow");
+        return true;
     });
         
 });

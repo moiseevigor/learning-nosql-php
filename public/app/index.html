@@ -63,6 +63,10 @@
                             <div class="info">
                                 <span class="data"></span>
                             </div>
+                            <div class="info">
+                                <button class="modifica-foto" data-foto-id="">modifica</button>
+                                <button class="elimina-foto" data-foto-id="">elimina</button>
+                            </div>
                         </div>
                     </li>
 	            </ul>
@@ -74,7 +78,7 @@
             
             <div id="pagina-inserisci" class="page">
                 <div class="insert-form">
-                <form enctype="multipart/form-data" method="POST" action="/foto"  onsubmit="return false;">
+                <form enctype="multipart/form-data" method="POST" action="/foto"  onsubmit="">
                   <input type="hidden" name="_METHOD" value="POST">
                   <p>Scatta una foto:</p>
                   <input required type="file" accept="image/*" capture="camera" name="foto">

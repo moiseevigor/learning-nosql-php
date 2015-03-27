@@ -1,3 +1,7 @@
+/**
+ * Gestione generica alla pagina
+ */
+
 // API per caricare i dati delle foto
 var API_URL = '/foto';
 
@@ -71,12 +75,15 @@ function loadNext() {
             for (var i = 0; i < data.length; i++) {
                 var foto = data[i];
                 var nome = foto.nome;
+                var id = foto._id.$id;
                 var new_line = $('.feedlist .placeholder').clone().removeClass('placeholder');
-                new_line = new_line + '<button value="elimina">';
+
                 $('.feedlist').append(new_line);
                 new_line.find('h2').text(nome);
-                new_line.find('img').attr('src', '../' + foto.link)
-                new_line.find('.data').text(foto.data)
+                new_line.find('img').attr('src', '../' + foto.link);
+                new_line.find('.data').text(foto.data);
+                new_line.find('.elimina-foto').data('fotoId', id);
+                obj = new_line.find('.elimina-foto').data();
             }
             loading = false;
         })
