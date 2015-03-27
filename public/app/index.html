@@ -11,10 +11,10 @@
         <!-- script src="phonegap.js"></script -->
         <script src="js/jquery.js"></script>
         <script src="js/page.js"></script>
+        <script src="js/hash.js"></script>
         <script src="js/login.js"></script>
         <script src="js/register.js"></script>
         <script src="js/upload.js"></script>
-        <script src="/utenti/info?callback=init"></script>
         <script type="text/javascript">
             var utente = {};
 
@@ -23,6 +23,7 @@
                     utente = response.utente;
             }
         </script>
+        <script src="/utenti/info?callback=init"></script>
 	</head>
     <body>
         <header>
@@ -45,6 +46,9 @@
                 </a>
                 <a href="#pagina-inserisci">
                     + Spritz
+                </a>
+                <a href="#">
+                    LOGOUT
                 </a>
             </div>
             
@@ -70,7 +74,7 @@
                         </div>
                     </li>
 	            </ul>
-            </div>
+                </div>
             
             <!-- 
 	            PAGINA INSERISCI
@@ -78,11 +82,11 @@
             
             <div id="pagina-inserisci" class="page">
                 <div class="insert-form">
-                <form enctype="multipart/form-data" method="POST" action="/foto"  onsubmit="">
+                <form enctype="multipart/form-data" method="POST" action="/foto">
                   <input type="hidden" name="_METHOD" value="POST">
                   <p>Scatta una foto:</p>
-                  <input required type="file" accept="image/*" capture="camera" name="foto">
-                
+                  <input required type="file" accept="image/*" capture="camera" name="foto"><br />
+                  <br />
                   <p>Nome spritz:</p>
                   <input type="text" name="nome" placeholder="es. Spritz Bianco">
                 
@@ -90,7 +94,7 @@
                  
                 </form>
                 </div>
-                <div class="loader">LOADING...</div>
+                <div class="loader">SAVING...</div>
             </div>
            
             <!-- 
@@ -117,16 +121,18 @@
             </div>
 
             <!-- 
+
+            <!-- 
 	            PAGINA REGISTRAZIONE
             -->
             
-            <div id="pagina-registrati" class="page" onsubmit="validaForm()">
+            <div id="pagina-registrati" class="page" onsubmit="return false;">
                 <div class="register-form">
                     <form action="/utenti" method="POST">
                         <input type="hidden" name="_METHOD" value="POST">
                         <input  type="text" name="nome" id="id_nome" placeholder="Nome"/>
                         <input type="text" name="cognome" id="id_cognome" placeholder="Cognome"/>
-                        <input type="email" name="email" id="id_email" placeholder="Email"/>
+                        <input type="text" name="email" id="id_email" placeholder="Email"/>
                         <input type="password" name="password" id="id_password" placeholder="password"/>  
                         <input type="password" name="conferma_password" id="id_password2" placeholder="Conferma password"/>                    
                         <input type="checkbox" required id="id_privacy" name="privacy"><label for="privacy"> Accetto il trattamento dei miei dati in base alla <a href="privacy.html">normativa sulla privacy</a>.</label>

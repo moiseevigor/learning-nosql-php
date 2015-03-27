@@ -45,11 +45,13 @@ $app->get("/",  function() use($app) {
 
 $app->get("/foto",  array('FotoController', 'index'));
 $app->post("/foto", array('FotoController', 'create'));
-$app->delete("/foto", array('FotoController', 'destroy'));
+$app->delete("/foto/:id", array('FotoController', 'destroy'));
+$app->put("/foto/:id", array('FotoController', 'modify'));
 
 $app->get("/utenti/info", array('UtentiController', 'info'));
 $app->post("/utenti", array('UtentiController', 'create'));
 $app->post("/utenti/login", array('UtentiController', 'login'));
+$app->get("/utenti/logout", array('UtentiController', 'logout'));
 $app->get("/facebook/login", array('FacebookController', 'login'));
 $app->get("/facebook/callback", array('FacebookController', 'callback'));
 $app->run();

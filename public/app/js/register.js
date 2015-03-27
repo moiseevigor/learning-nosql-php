@@ -4,22 +4,23 @@
 
 $(document).ready(function() {
 
-/*    
+    
     $(".register-form > form").submit(function() {
-        validaForm();
-        return true;
-        $.post('/utenti', $(".register-form > form").serialize(), function(response) {
-            $("a[href^=#pagina-feed]").trigger('click');
-        }).fail(function(response) {
-            alert(response.responseJSON.message);
-        });
+        if (validaForm()) {
+            $.post('/utenti', $(".register-form > form").serialize(), function(response) {
+                $("a[href^=#pagina-feed]").trigger('click');
+            }).fail(function(response) {
+               // validazione sul server fallita
+            });
+        }    
     });
-*/
+
 
 });
 
 // funzione per la validazione del form
 function validaForm() {
+    $('.error').remove();
     var inputVal = new Array(
         $('#id_nome').val(),
         $('#id_cognome').val(),
@@ -29,27 +30,36 @@ function validaForm() {
         
     for (var i = 0; i < inputVal.length; i++) {
         if (inputVal[i] != "") {
-          if (i == 0 || i == 1) {
+          if (i == 0) {
             if (inputVal[i].length > 100) {
-                alert("Devi inserire al max 100 caratteri");
-                return false;
+                $('#id_nome').after('<div class="error"> Il campo può contenere al massimo 100 caratteri</div>');
+                //return false;
             }
-          } else if (i == 2) {
-            var at = "@";  
+          }
+          if (i == 1) {
+            if (inputVal[i].length > 100) {
+                $('#id_cognome').after('<div class="error"> Il campo può contenere al massimo 100 caratteri</div>');
+                //return false;
+            }
+          } 
+          if (i == 2) {
+            var at = /@/g; 
             if (!at.test(inputVal[i])) {
-                alert("Non è una email valida");
-                return false;
+                $('#id_email').after('<div class="error">'+"L'email deve contenere la @ </div>");
+                //return false;
             }  
-          } else if (i == 3) {
+          }
+          if (i == 3) {
             if (inputVal[3] != inputVal[4]) {
-                alert("Le password devono essere uguali");
-                return false;
+                $('#id_password2').after('<div class="error">Le due password devono coincidere</div>');
+                //return false;
             }   
           } 
-        }  else {
-            alert("ci sono dei campi vuoti");
+        } else {
+            $('.register-form').before('<div class="erro">Ci sono dei campi vuoti</div>');
             return false;
         }
+        
     }
     
     return true;

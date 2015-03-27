@@ -26,4 +26,57 @@
 .feedlist li .text {
     height: 50px;
     border-radius: 0 0 10px 10px;
+    padding-bottom: 25px;
+}
+.modifica-foto {
+    text-transform: uppercase;
+    border: none;
+    background-color: #39c;
+    padding: 5px 5px 5px 5px;
+    letter-spacing: 1px;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    border-radius: 10px 10px 10px 10px;
+}
+.elimina-foto {
+    text-transform: uppercase;
+    color: #39c;
+    border: none;
+    padding: 5px 5px 5px 5px;
+    letter-spacing: 1px;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 10px 10px 10px 10px;
+}
+.data {
+     font-size: 10px;
+     color: #39c;
+     text-transform: uppercase;
+    
+}
+.prova {
+    background-image: 'crocetta.png';
+}
+.error {
+    text-align: center;
+    color: red;
+<<<<<<<<< saved version
+
+=========
+<<<<<<<<< saved version
+    border-bottom: 15px;
+=========
+<<<<<<<<< saved version
+    padding-bottom: 15px;
+=========
+<<<<<<<<< saved version
+    margin-bottom: 15px;
+>>>>>>>>> local version
+>>>>>>>>> local version
+>>>>>>>>> local version
+    
+=========
+
+>>>>>>>>> local version
 }

@@ -25,11 +25,18 @@ class FotoController extends Controller
     
     public static function destroy($id)
     {
-        Controller::response(Foto::destroy(array('_id' => $id)));
+        Controller::response(Foto::destroy(array('_id' => new MongoID($id))));
+    }
+    
+    public static function modify($id)
+    {
+        echo("modify");
     }
     
     public static function create()
-    {
+    { 
+        global $app;
+    
         $cartellaUpload ="img/";
         $filename = basename($_FILES['foto']['name']);
         $filePath = $cartellaUpload . $filename;
@@ -54,12 +61,14 @@ class FotoController extends Controller
             $lng = Controller::gpsDecimal($exif_lng[0], $exif_lng[1], $exif_lng[2], $exif_lng_ref);      
         }
 
-        Controller::response(Foto::create(array(
+        Foto::create(array(
             'nome' => $nome,
             'link' => $filePath,
             'lat' => $lat,
             'lng' => $lng,
             'data' => new MongoDate()
-        )));
+        ));
+        
+        $app->redirect ("/app/#pagina-feed");
     }
 }

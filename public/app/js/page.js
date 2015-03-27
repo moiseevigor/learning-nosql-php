@@ -13,6 +13,8 @@ var loading = false;
 
 $(document).ready(function() {
 
+
+
     // Apri-chiudi menu cassetto.
     $('.open-menu').on('click', function() {
         $('.side-menu').toggleClass("open");
@@ -24,27 +26,6 @@ $(document).ready(function() {
             $('.side-menu').removeClass('open');
         }
     });
-
-    // Inserisco l'ascoltatore sui link che puntano alle pagine,
-    // cioè tutti i link che cominciano con "#pagina-"
-    $("a[href^=#pagina-]").click(function() {
-
-        // nascondo tutte le pagine.
-        $('.page').removeClass('active');
-
-        // Ottengo l'id della pagina da mostrare
-        var id_pagina = $(this).attr('href');
-
-        // Mostro solo la pagina cliccata.
-        $(id_pagina).addClass('active');
-
-        // Chiudo il menu
-        $('.side-menu').removeClass("open");
-
-        return false;
-
-    });
-
 
     // Info login
     if (utente.email !== undefined) {
@@ -83,7 +64,22 @@ function loadNext() {
                 new_line.find('img').attr('src', '../' + foto.link);
                 new_line.find('.data').text(foto.data);
                 new_line.find('.elimina-foto').data('fotoId', id);
-                obj = new_line.find('.elimina-foto').data();
+                  
+                new_line.find('.elimina-foto').click( function() {
+                    console.log("fatto");
+                    $.post( "/foto/"+$(this).data("fotoId"), { id: $(this).data("fotoId"), _METHOD: "DELETE" }, function(){
+                    } );
+                    location.reload();
+                });
+                
+                new_line.find('.modifica-foto').data('fotoId', id);
+                  
+                new_line.find('.modifica-foto').click( function() {
+                    console.log("fatto");
+                    $.post( "/foto/"+$(this).data("fotoId"), { id: $(this).data("fotoId"), _METHOD: "PUT" }, function(){
+                    } );
+                });
+                             
             }
             loading = false;
         })

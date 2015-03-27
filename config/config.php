@@ -16,7 +16,7 @@ return array(
     ),
     
     'facebook' => array(
-        'appId' => '419034941606438',
-        'secret' => 'd1c9715064cd6d7f52a8797332f7c278'
+        'appId' => '402586513256342',
+        'secret' => '30ccc4374f456dd8cf323821ae847b09'
     )
   );

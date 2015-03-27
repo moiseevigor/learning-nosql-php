@@ -40,6 +40,17 @@ class UtentiController extends Controller
         }
     }
     
+    public static function logout()
+    {
+        global $app;
+        
+        if(isset($_SESSION['email'])) {
+            unset($_SESSION['email']);
+            $app->redirect("/");
+
+        } 
+    }
+    
     public static function create()
     {
         $nome = $_POST['nome'];

@@ -161,6 +161,17 @@ header .logo {
     
 }
 
+.side-menu a:last-child{
+    color: #eee;
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    font-family: 'Architects Daughter';
+    padding:10px;
+    border-bottom:none;
+    
+}
+
 /* Lista fotografie */
 
 .placeholder {
@@ -191,13 +202,45 @@ header .logo {
     font-weight: 300;
     font-size: 18px;
     padding: 5px 0;
+    padding-bottom: 25px;
 }
 
 .feedlist li .info {
     font-size: 12px;
 }
 
+.feedlist li .picture {
+    height: 250px;
+    overflow: hidden;
+    border-radius: 10px 10px 0 0;
+}
 
+.feedlist li .picture img {
+    min-height: 100%;
+}
+
+.modifica-foto {
+    text-transform: uppercase;
+    border: none;
+    background-color: #39c;
+    padding: 5px 5px 5px 5px;
+    letter-spacing: 1px;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.elimina-foto {
+    text-transform: uppercase;
+    color: #39c;
+    border: none;
+    padding: 5px 5px 5px 5px;
+    letter-spacing: 1px;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 10px 10px 10px 10px;
+}
 
 /* Form di login, caricamento foto e registrazione */
 
