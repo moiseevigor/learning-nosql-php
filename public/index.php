@@ -19,8 +19,7 @@ $app = new \Slim\Slim(array(
 $app->add(new \Slim\Middleware\SessionCookie(array(
     'expires' => '1 month',
     'path' => '/',
-    'domain' => '192.168.88.250',
-//    'domain' => 'corso.onelife.fm',
+    'domain' => 'corso.onelife.fm',
     'secure' => false,
     'httponly' => false,
     'name' => 'myspritz_session',
@@ -32,8 +31,8 @@ $app->add(new \Slim\Middleware\SessionCookie(array(
 $db = $config['db'];
 // Mongo
 $mongo = new MongoClient(
-    //"{$db['driver']}://{$db['user']}:{$db['password']}@{$db['host']}:{$db['port']}/{$db['dbname']}"
-    "{$db['driver']}://{$db['host']}:{$db['port']}/{$db['dbname']}"
+    "{$db['driver']}://{$db['user']}:{$db['password']}@{$db['host']}:{$db['port']}/{$db['dbname']}"
+    //"{$db['driver']}://{$db['host']}:{$db['port']}/{$db['dbname']}"
 );
 
 $app->get("/",  function() use($app) {
